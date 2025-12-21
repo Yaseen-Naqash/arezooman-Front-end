@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa-IR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آرزوها - Arezooman.ir</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --gray: #6c757d;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            background-color: #fefefe;
+            color: var(--dark);
+            line-height: 1.7;
+            direction: rtl;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-right: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .accent-button {
+            background-color: var(--accent);
+        }
+
+        .accent-button:hover {
+            background-color: #d90479;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 35px;
+        }
+
+        /* How It Works */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin: 60px 0 40px;
+            color: var(--secondary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            bottom: -12px;
+            right: 50%;
+            transform: translateX(50%);
+            border-radius: 2px;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .step-icon {
+            background-color: #e9ecef;
+            color: var(--primary);
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            margin: 0 auto 20px;
+        }
+
+        .step-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        /* Wishes Grid */
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 70px;
+        }
+
+        .wish-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .wish-card:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .wish-image {
+            height: 180px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .wish-content {
+            padding: 22px;
+        }
+
+        .wish-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .wish-description {
+            color: var(--gray);
+            margin-bottom: 18px;
+            font-size: 0.95rem;
+        }
+
+        .wish-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .wish-price {
+            background-color: #e7f9ff;
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .wish-status {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 25px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 18px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid #495057;
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                margin-top: 10px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step-card {
+                max-width: 100%;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">A R E Z O O <span>M A N</span>.ir</a>
+            <ul class="nav-links">
+                <li><a href="#home">خانه</a></li>
+                <li><a href="#wishes">آرزوها</a></li>
+                <li><a href="#how">چگونه کار می‌کند؟</a></li>
+                <li><a href="#stories">داستان‌ها</a></li>
+                <li><a href="#about">درباره ما</a></li>
+            </ul>
+            <a href="#" class="cta-button">ثبت آرزو</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>فرشته یک آرزو باشید</h1>
+            <p>در اینجا آرزوهای کوچک افرادی که فرصت های کمتری دارند را پیدا می‌کنید. شما می‌توانید با برآورده کردن یکی از این آرزوها، فرشتهٔ ناجی آنها شوید.</p>
+            <a href="#wishes" class="cta-button accent-button">مشاهده آرزوها <i class="fas fa-arrow-left"></i></a>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how">
+        <div class="container">
+            <h2 class="section-title">چگونه کار می‌کند؟</h2>
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>آرزوها را ببینید</h3>
+                    <p>بین صدها آرزوی ثبت شده جستجو کنید. آرزوها بر اساس هزینه، دسته‌بندی و موقعیت مکانی قابل فیلتر هستند.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>یک آرزو انتخاب کنید</h3>
+                    <p>آرزویی که با روحیه شما سازگار است انتخاب کنید. حتی کمک‌های کوچک می‌توانند زندگی کسی را تغییر دهند.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>فرشته او شوید</h3>
+                    <p>آرزو را برآورده کنید و شادی را به زندگی فردی دیگر هدیه دهید. ما فرایند اهدا را امن و خصوصی نگه می‌داریم.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Wishes -->
+    <section id="wishes">
+        <div class="container">
+            <h2 class="section-title">آرزوهای در انتظار</h2>
+            <div class="wishes-grid">
+                <!-- Wish 1 -->
+                <div class="wish-card">
+                    <div class="wish-image" style="background-image: url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="wish-content">
+                        <h3 class="wish-title">یک لپ‌تاپ برای تحصیل دانشگاهی</h3>
+                        <p class="wish-description">دانشجوی ترم اول مهندسی، به یک لپ‌تاپ ساده برای انجام پروژه‌های دانشگاهی و شرکت در کلاس‌های آنلاین نیاز دارد.</p>
+                        <div class="wish-meta">
+                            <span class="wish-price">حدود ۸ میلیون تومان</span>
+                            <span class="wish-status">در انتظار فرشته</span>
+                        </div>
+                        <a href="#" class="cta-button" style="width: 100%; text-align: center; display: block;">من این آرزو را برآورده می‌کنم</a>
+                    </div>
+                </div>
+                <!-- Wish 2 -->
+                <div class="wish-card">
+                    <div class="wish-image" style="background-image: url('https://images.unsplash.com/photo-1531048563740-72bb3ab5c3b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="wish-content">
+                        <h3 class="wish-title">دوچرخه برای رفتن به مدرسه</h3>
+                        <p class="wish-description">پسر ۱۰ ساله ای که مدرسه او ۴ کیلومتر با خانه فاصله دارد. دوچرخه می‌تواند سفر او را آسان و لذت‌بخش کند.</p>
+                        <div class="wish-meta">
+                            <span class="wish-price">حدود ۳ میلیون تومان</span>
+                            <span class="wish-status">در انتظار فرشته</span>
+                        </div>
+                        <a href="#" class="cta-button" style="width: 100%; text-align: center; display: block;">من این آرزو را برآورده می‌کنم</a>
+                    </div>
+                </div>
+                <!-- Wish 3 -->
+                <div class="wish-card">
+                    <div class="wish-image" style="background-image: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="wish-content">
+                        <h3 class="wish-title">کتاب‌های درسی برای سال تحصیلی جدید</h3>
+                        <p class="wish-description">دانش آموز دبیرستانی از خانواده‌ای کم‌بضاعت برای خرید کتاب‌های سال آینده خود نیاز به کمک دارد.</p>
+                        <div class="wish-meta">
+                            <span class="wish-price">حدود ۱.۵ میلیون تومان</span>
+                            <span class="wish-status">در انتظار فرشته</span>
+                        </div>
+                        <a href="#" class="cta-button" style="width: 100%; text-align: center; display: block;">من این آرزو را برآورده می‌کنم</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#" class="cta-button">مشاهده همه آرزوها <i class="fas fa-arrow-left"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">A R E Z O O <span style="color: #d90479;">M A N</span></div>
+                    <p>پلتفرمی برای اتصال مهربانی. ما به افراد این فرصت را می‌دهیم که آرزوهای کوچک دیگران را برآورده کنند و دنیا را جای بهتری سازند.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>لینک‌های سریع</h4>
+                    <ul>
+                        <li><a href="#home">خانه</a></li>
+                        <li><a href="#wishes">آرزوها</a></li>
+                        <li><a href="#how">چگونه کار می‌کند؟</a></li>
+                        <li><a href="#about">درباره ما</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>قوانین و مقررات</h4>
+                    <ul>
+                        <li><a href="#">شرایط استفاده</a></li>
+                        <li><a href="#">حریم خصوصی</a></li>
+                        <li><a href="#">سوالات متداول</a></li>
+                        <li><a href="#">تماس با ما</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © ۲۰۲۳ Arezooman.ir - تمامی حقوق محفوظ است. این یک پروژه کدنویسی شخصی است.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Example: Button click alert
+        document.querySelectorAll('.wish-card .cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const wishTitle = this.closest('.wish-card').querySelector('.wish-title').textContent;
+                alert(`شما قصد دارید فرشته "${wishTitle}" باشید! (این یک دمو است. در نسخه بک‌اند شما به صفحه پرداخت/تأیید هدایت خواهید شد.)`);
+            });
+        });
+    </script>
+</body>
+</html>
